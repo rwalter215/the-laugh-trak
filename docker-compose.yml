@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  ########################
+  # setup server container
+  ########################
+  server:
+    build: ./server
+    expose:
+      - ${APP_SERVER_PORT}
+    environment:
+      API_HOST: ${API_HOST}
+      APP_SERVER_PORT: ${APP_SERVER_PORT}
+    ports:
+      - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
+    volumes:
+      - ./server:/home/app/server
+    command: npm start
+
+  ########################
+  # setup client container
+  ########################
+  client:
+    build: ./client
+    environment:
+      - REACT_APP_PORT=${REACT_APP_PORT}
+    expose:
+      - ${REACT_APP_PORT}
+    ports:
+      - ${REACT_APP_PORT}:${REACT_APP_PORT}
+    volumes:
+      - ./client/src:/home/app/client/src
+      - ./client/public:/home/app/client/public
+    links:
+      - server
+    command: npm start

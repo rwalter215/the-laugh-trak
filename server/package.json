@@ -1,0 +1,11 @@
+{
+  "name": "laugh-trak-server",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
