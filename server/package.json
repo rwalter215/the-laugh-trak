@@ -6,6 +6,6 @@
     "express": "^4.16.4"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node src/server.js"
   }
 }

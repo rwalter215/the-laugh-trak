@@ -14,7 +14,7 @@ services:
     ports:
       - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
     volumes:
-      - ./server:/home/app/server
+      - ./server/src:/home/app/server/src
     command: npm start
 
   ########################
